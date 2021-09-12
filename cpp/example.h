@@ -3,6 +3,7 @@
 
 namespace example {
   int multiply(float a, float b);
+  int add(float a, float b);
 }
 
 #endif /* EXAMPLE_H */

@@ -2,6 +2,7 @@ import { NativeModules } from 'react-native';
 
 type JsiExampleType = {
   multiply(a: number, b: number): Promise<number>;
+  add(a: number, b: number): Promise<number>;
 };
 
 const { JsiExample } = NativeModules;
