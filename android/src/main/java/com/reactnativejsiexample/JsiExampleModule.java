@@ -7,6 +7,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.module.annotations.ReactModule;
+import com.facebook.react.bridge.JavaScriptContextHolder;
 
 @ReactModule(name = JsiExampleModule.NAME)
 public class JsiExampleModule extends ReactContextBaseJavaModule {
@@ -20,6 +21,15 @@ public class JsiExampleModule extends ReactContextBaseJavaModule {
     @NonNull
     public String getName() {
         return NAME;
+    }
+
+    private static native void initialize(long jsiPtr, String docDir);
+
+    @Override
+    public void initialize(){
+        super.initialize();
+        JsiExampleModule.initialize(this.getReactApplicationContext().getJavaScriptContextHolder().get(),
+                this.getReactApplicationContext().getFilesDir().getAbsolutePath());
     }
 
     static {

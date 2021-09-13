@@ -5,6 +5,7 @@ set (CMAKE_CXX_STANDARD 11)
 
 add_library(cpp
             SHARED
+            ../example/node_modules/react-native/ReactCommon/jsi/jsi/jsi.cpp
             ../cpp/example.cpp
             cpp-adapter.cpp
 )
@@ -12,4 +13,5 @@ add_library(cpp
 # Specifies a path to native header files.
 include_directories(
             ../cpp
+            ../example/node_modules/react-native/ReactCommon/jsi
 )
