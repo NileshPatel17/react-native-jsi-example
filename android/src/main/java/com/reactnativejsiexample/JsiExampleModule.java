@@ -37,5 +37,11 @@ public class JsiExampleModule extends ReactContextBaseJavaModule {
         promise.resolve(nativeMultiply(a, b));
     }
 
+    @ReactMethod
+    public void add(int a, int b, Promise promise) {
+        promise.resolve(nativeAdd(a, b));
+    }
+
     public static native int nativeMultiply(int a, int b);
+    public static native int nativeAdd(int a, int b);
 }
